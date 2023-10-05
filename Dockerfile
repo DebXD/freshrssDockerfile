@@ -42,9 +42,9 @@ RUN wget https://github.com/FreshRSS/Extensions/archive/master.zip && \
     mv Extensions-master/* /var/www/html/extensions/ && \
     rm -rf master.zip Extensions-master
 
-# Change permissions for the customcss/static/ directory and its files
-RUN chown -R www-data:www-data /var/www/html/extensions/customcss/static && \
-    chmod -R 775 /var/www/html/extensions/customcss/static && \
+# Change permissions for the extensions directory and its folders
+RUN chown -R www-data:www-data /var/www/html/extensions/ && \
+    chmod -R 775 /var/www/html/extensions/ && \
     chown -R www-data:www-data /var/www/html/extensions && \
     chmod -R 775 /var/www/html/extensions
     
