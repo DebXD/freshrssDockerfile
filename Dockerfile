@@ -44,7 +44,8 @@ RUN wget https://github.com/FreshRSS/Extensions/archive/master.zip && \
 
 # Change permissions for the customcss/static/ directory and its files
 RUN chown -R www-data:www-data /var/www/html/extensions/customcss/static && \
-    chmod -R 775 /var/www/html/extensions/customcss/static
+    chmod -R 775 /var/www/html/extensions/customcss/static && \
+    chmod -R 775 /var/www/html/extensions
 
 # Change directory to the FreshRSS themes directory and clone the "freshrss-nord-theme" repository
 RUN cd "${FRESHRSS_INSTALL_DIR}/p/themes" && \
