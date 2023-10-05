@@ -39,7 +39,7 @@ EXPOSE 80
 # Download the xExtension-CustomCSS extension from GitHub
 RUN wget https://github.com/FreshRSS/Extensions/archive/master.zip && \
     unzip master.zip && \
-    mv Extensions-master/xExtension-CustomCSS /var/www/html/extensions/customcss && \
+    mv Extensions-master/* /var/www/html/extensions/ && \
     rm -rf master.zip Extensions-master
 
 # Change permissions for the customcss/static/ directory and its files
