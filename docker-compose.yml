@@ -1,0 +1,12 @@
+version: '3'
+services:
+  freshrss:
+    image: debxd/freshrssdocker:1.0
+    container_name: freshrss
+    ports:
+      - "8080:80" # Map the container's port 80 to host port 8080
+    volumes:
+      - freshrss-data:/var/www/FreshRSS/data # Mount a volume to store data
+
+volumes:
+  freshrss-data:
