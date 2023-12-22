@@ -1,12 +1,20 @@
-version: '3'
-services:
-  freshrss:
-    image: debxd/freshrssdocker:1.0
-    container_name: freshrss
-    ports:
-      - "8080:80" # Map the container's port 80 to host port 8080
-    volumes:
-      - freshrss-data:/var/www/FreshRSS/data # Mount a volume to store data
+version: "3"
 
-volumes:
-  freshrss-data:
+networks:
+  gitea:
+    external: false
+
+services:
+  server:
+    image: gitea/gitea:latest  # Use your custom image
+    container_name: gitea
+    restart: always
+    networks:
+      - gitea
+    volumes:
+      - ./gitea:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "3000:3000"
+      - "222:22"
